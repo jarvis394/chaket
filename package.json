@@ -1,0 +1,15 @@
+{
+  "name": "chaket",
+  "version": "0.0.1",
+  "description": "Messenger app",
+  "dependencies": {
+    "express": "^4.16.3",
+    "quick.db": "^6.3.2",
+    "socket.io": "^2.1.1",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
