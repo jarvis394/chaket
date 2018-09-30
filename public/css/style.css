@@ -1,0 +1,111 @@
+body { 
+  margin: 0; 
+  padding: 0; 
+  display: flex;
+  flex-direction: column;
+}
+      
+.form { 
+  padding: 3px; 
+  position: fixed !important;
+  bottom: 5px;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  max-width: 724px;
+}
+      
+.form input { 
+  border: 0; 
+  padding: 10px; 
+  width: 100% !important; 
+  margin-right: .5%; 
+}
+      
+.form button { 
+  width: 44px;
+  height: 44px;
+  border: none; 
+  border-radius: 50% !important; 
+  padding: 10px;
+  margin-top: 4px;
+  background: transparent !important;
+  transform: translateX(5px);
+}
+
+.form button i {
+  transition: .05s ease-in;
+}
+
+.formAct {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: -ms-flexbox;
+  display: flex;
+  background: #eee; 
+  border-radius: 5px;
+}
+    
+#messages { 
+  list-style-type: none; 
+  margin-top: 10px;
+  margin-bottom: 64px;
+  padding: 0; 
+}
+      
+#messages li { 
+  padding: 5px 10px; 
+  overflow-wrap: break-word;
+  margin: 5px;
+  border-radius: 5px;
+  animation-duration: 0.1s !important;
+}
+
+#messages li .ava {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+#messages li .mText {
+  margin-left: 12px;
+  max-width: 100%;
+}
+
+button:hover i {
+  color: #888 !important;
+}
+
+.typing {
+  position: absolute;
+  -webkit-transform: translateY(-18px);
+  transform: translateY(-18px); 
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0; 
+}
+
+.hidden {
+  display: none;
+}
+
+.typingFloatIco {
+  animation: fading 1s infinite ease-out;
+  width: 8px;
+  height: 8px; 
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  -webkit-transform: translateY(-14px);
+  transform: translateY(-14px); 
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@keyframes fading {
+  0% {opacity: 0.3}
+  50% {opacity: 1}
+  100% {opacity: 0.3}
+}
