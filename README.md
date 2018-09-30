@@ -6,6 +6,6 @@
 - [x] Create simple messaging
 - [x] Create users
 - [x] Create register
-- [] Create login
-- [] Create userpage
-- [] Create chat rooms
+- [ ] Create login
+- [ ] Create userpage
+- [ ] Create chat rooms
