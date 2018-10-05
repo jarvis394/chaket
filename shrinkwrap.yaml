@@ -2,7 +2,7 @@ dependencies:
   body-parser: 1.18.3
   cookie-parser: 1.4.3
   express: 4.16.3
-  quick.db: 6.3.2
+  quick.db: 7.0.0-b15
   socket.io: 2.1.1
 packages:
   /accepts/1.3.5:
@@ -384,10 +384,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-2HV7HagH3eJIFrDWqEvqGnYjCyM=
-  /lodash.sortby/4.7.0:
+  /lodash.unset/4.5.2:
     dev: false
     resolution:
-      integrity: sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
+      integrity: sha1-Nw0dPoW3Kn4bDN8tJyEhMG8j5O0=
   /media-typer/0.3.0:
     dev: false
     engines:
@@ -488,17 +488,15 @@ packages:
       node: '>=0.6'
     resolution:
       integrity: sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
-  /quick.db/6.3.2:
+  /quick.db/7.0.0-b15:
     dependencies:
       better-sqlite3: 4.1.4
-      express: 4.16.3
       lodash.get: 4.4.2
       lodash.set: 4.3.2
-      lodash.sortby: 4.7.0
-      socket.io: 2.1.1
+      lodash.unset: 4.5.2
     dev: false
     resolution:
-      integrity: sha512-+Fd7skXH/MDoX4TIlwstzt4TsjOqF/3joDurXrSEePf0KPYXEwwq3EnzoJ6C4dzZ58KGSasNdAU1OeC8envvWA==
+      integrity: sha512-hdONRoVAIQJnVjJWCH7Zy6FzapkRYNR0ZjcSqrXf13xjANP6541A8DPm8A6XJ2n6zx6HmIci+DXNXjptw5VDhA==
   /range-parser/1.2.0:
     dev: false
     engines:
@@ -692,5 +690,5 @@ specifiers:
   body-parser: ^1.18.3
   cookie-parser: ^1.4.3
   express: ^4.16.3
-  quick.db: ^6.3.2
+  quick.db: ^7.0.0-b15
   socket.io: ^2.1.1
