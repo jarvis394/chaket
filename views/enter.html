@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <meta name="theme-color" content="#e8e8e8">
+  <meta name="msapplication-navbutton-color" content="#e8e8e8">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#e8e8e8">
+
+  <meta name="description" content="Free chat app" />
+  <meta name="keywords" content="chat, chatting, messages, messenger" />
+  <meta name="author" content="jarvis" />
+  <link rel="shortcut icon" href="https://cdn.glitch.com/51abc91e-1207-4d19-94aa-de472d3c1d5a%2FUntitled34?1538147248961">
+
+  <title>chaket.io</title>
+  
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link type="text/css" rel="stylesheet" href="css/enter.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/animate.css" media="screen,projection" />
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+  <script src="js/enter.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/pSetup.js"></script>
+</head>
+
+<style>
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: #e8e8e8;
+    color: black !important;
+  }
+  
+</style>
+  
+<script>
+  
+  $(window).bind('beforeunload',function(){
+    $('body').addClass('fadeOut');
+  });
+  
+</script>
+
+<body class="fadeIn animated" style="animation-duration: 0.2s !important;">
+  
+  <!-- particles.js container -->
+  <div id="particles-js" class="animated fadeIn out">
+  </div>
+  
+  <nav class="transparent z-depth-0">
+    <div class="nav-wrapper container">
+      <a href="/" class="brand-logo left hoverBtn"><i class="material-icons">arrow_back</i></a>
+    </div>
+  </nav>
+  
+  <div class="container animated fadeIn valign-wrapper" style="animation-duration: 0.5s !important;">
+    <div class="row">
+      
+      <!-- LOGIN -->
+            
+      <div style="animation-duration: 0.5s !important;" class="log animated col s12 m7 l5 box z-depth-1">
+        
+        <div class="row">
+          <form class="col s12 loginForm">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="email" name="email" type="email" class="validate" autofocus>
+                <label for="email">E-mail</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="password" name="password" type="password" class="validate">
+                <label for="password">Password</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 center">
+                <button type="submit" class="loginBtn waves-effect waves-dark btn submit"><b><i class="material-icons right">arrow_forward</i>login</b></button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 center">
+                <p style="font-weight: 600; color: #666;">
+                  No accoumt? <a class="underlined" id="regRedir">Register</a>
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+      
+      <!-- REGISTER -->
+      
+      <div style="animation-duration: 0.5s !important;" class="reg hidden animated col s12 m7 l6 box z-depth-1">
+        
+        <div class="row">
+          <form class="col s12 registerForm">
+            <div class="row">
+              <div class="input-field col s6">
+                <input name="first_name" id="first_nameRegister" type="text" class="validate">
+                <label for="first_nameRegister">Name</label>
+              </div>
+              <div class="input-field col s6">
+                <input name="last_name" id="last_nameRegister" type="text" class="validate">
+                <label for="last_nameRegister">Surname</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input name="email" id="emailRegister" type="email" class="validate">
+                <label for="emailRegister">E-mail</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input name="password" id="passwordRegister" type="password" class="validate">
+                <label for="passwordRegister">Password</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 center">
+                <button type="submit" class="waves-effect waves-dark btn submit"><b><i class="material-icons right">arrow_forward</i>register</b></button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 center">
+                <p style="font-weight: 600; color: #666;">
+                  Already have an account? <a class="underlined" id="loginRedir">Login</a>
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+      
+    </div>
+  </div>
+  
+</body>
+
+</html>

@@ -3,42 +3,66 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var cookieParser = require('cookie-parser');
-var db = require('quick.db');
+var data = require('quick.db');
 var utils = require('./utils.js');
+var bodyParser = require("body-parser");
 var port = process.env.PORT || 3000;
+
+const options = {
+  maxAge: 1000 * 60 * 60 * 60 * 60 * 60 * 60 * 60 * 15, 
+  httpOnly: true
+}
 
 app.use(express.static('public'));
 app.use(cookieParser());
+var jsonParser = bodyParser.json();
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get('/login', (req, res) => {
-  res.sendFile(__dirname + '/views/login.html');
+app.get('/enter', (req, res) => {
+  res.sendFile(__dirname + '/views/enter.html');
 });
 
-app.get('/register', (req, res) => {
+/* ENTERING */
+
+app.post("/register", jsonParser, function (req, res) {
+  if(!req.body || !req.body.name || !req.body.surname || !req.body.email || !req.body.password) return res.sendStatus(400);
+    
+  var email   = req.body.email,
+      pass    = req.body.password,
+      name    = req.body.name,
+      surname = req.body.surname;
   
-  res.sendFile(__dirname + '/views/register.html');
+  var user = data.get(email);
+  
+  if (user) return res.sendStatus(403);
+  
+  data.set(`${email}`, {password: pass, name: name, surname: surname});
+  
+  // Set cookie
+  res.cookie('login', email + '|' + pass, options);
+  res.json('');
 });
 
-app.get('/register/submit', (req, res) => {
-  var email= req.query.email,
-      pass = req.query.password;
-  var id = utils.random(1000000, 9999999);
+app.post("/login", jsonParser, function (req, res) {
+  if(!req.body || !req.body.email || !req.body.password) return res.sendStatus(400);
+    
+  var email = req.body.email,
+      pass  = req.body.password;
   
-  db.set(id, {email: email, password: pass}).then(a => console.log(a));
-
-  let options = {
-    maxAge: 1000 * 60 * 60 * 60 * 60 * 60 * 60 * 60 * 15, 
-    httpOnly: true
-  }
+  var user = data.get(email);
+  
+  if (!user) return res.sendStatus(404);
+  if (user.password !== pass) return res.sendStatus(403);
 
   // Set cookie
-  res.cookie('id', id, options) // options is optional
-  res.redirect("/");
+  res.cookie('login', email + '|' + pass, options);
+  res.json('');
 });
+
+/* SOCKET.IO */
 
 io.on('connection', socket => {
   
