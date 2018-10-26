@@ -8,6 +8,8 @@ var utils = require('./utils.js');
 var bodyParser = require("body-parser");
 var port = process.env.PORT || 3000;
 
+const DEFAULT_PIC = 'https://cdn.glitch.com/51abc91e-1207-4d19-94aa-de472d3c1d5a%2Fpersonal_default_avatar_for_mobile_phone_app__146524.png?1539975465839';
+
 const options = {
   maxAge: 1000 * 60 * 60 * 60 * 60 * 60 * 60 * 60 * 15, 
   httpOnly: true
@@ -39,7 +41,7 @@ app.post("/register", jsonParser, function (req, res) {
   
   if (user) return res.sendStatus(403);
   
-  data.set(`${email}`, {password: pass, name: name, surname: surname});
+  data.set(`${email}`, {password: pass, name: name, surname: surname, pic: DEFAULT_PIC});
   
   // Set cookie
   res.cookie('login', email + '|' + pass, options);
