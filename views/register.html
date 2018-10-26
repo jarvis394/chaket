@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   
   <meta name="theme-color" content="#e8e8e8">
   <meta name="msapplication-navbutton-color" content="#e8e8e8">
@@ -22,6 +22,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <link type="text/css" rel="stylesheet" href="css/enter.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/enterForm.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/utils.css" media="screen,projection" />
   <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
   <link type="text/css" rel="stylesheet" href="css/animate.css" media="screen,projection" />
 
@@ -29,6 +31,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
   <script src="js/enter.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/pSetup.js"></script>
 </head>
 
 <style>
@@ -54,42 +58,48 @@
   
   <nav class="transparent z-depth-0">
     <div class="nav-wrapper container">
-      <a href="/" class="brand-logo black-text left"><i class="material-icons">arrow_back</i></a>
+      <a href="/" class="brand-logo left hoverBtn"><i class="material-icons">arrow_back</i></a>
     </div>
   </nav>
   
-  <div class="container animated fadeIn" style="animation-duration: 0.5s !important;">
+  <div class="container animated fadeIn valign-wrapper" style="animation-duration: 0.5s !important;">
     <div class="row">
       
-      <!-- LOGIN -->
-			
-      <div class="container-form">
-      <div style="animation-duration: 0.5s !important;" class="form-wrapper animated">
+      <div style="animation-duration: 0.5s !important;" class="reg hidden animated col s12 m7 l6">
         
         <div class="row">
-          <form class="col s12" action="/login">
-            <p class="form-title">Login</p>
+          <form class="col s12 registerForm">
             <div class="row">
-              <div class="input-field col s12">
-                <input id="email" name="email" type="email" class="validate" spellcheck="false" autofocus>
-                <label for="email">E-mail</label>
+              <div class="input-field col s6">
+                <input name="first_name" id="first_nameRegister" type="text" class="validate">
+                <label for="first_nameRegister">Name</label>
+              </div>
+              <div class="input-field col s6">
+                <input name="last_name" id="last_nameRegister" type="text" class="validate">
+                <label for="last_nameRegister">Surname</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="password" name="password" type="password" class="validate">
-                <label for="password">Password</label>
+                <input name="email" id="emailRegister" type="email" class="validate">
+                <label for="emailRegister">E-mail</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input name="password" id="passwordRegister" type="password" class="validate">
+                <label for="passwordRegister">Password</label>
               </div>
             </div>
             <div class="row">
               <div class="col s12 center">
-                <button type="submit" class="btn"><b>login</b></button>
+                <button type="submit" class="waves-effect waves-dark btn submit"><b><i class="material-icons right">arrow_forward</i>register</b></button>
               </div>
             </div>
-            <div class="row form-toReg">
+            <div class="row">
               <div class="col s12 center">
-                <p class="bold" style="color: #666;">
-                  No account? <a class="underlined" id="regRedir">Register</a>
+                <p style="font-weight: 600; color: #666;">
+                  Already have an account? <a class="underlined" id="loginRedir">Login</a>
                 </p>
               </div>
             </div>
@@ -97,11 +107,7 @@
         </div>
 
       </div>
-      </div>
-      
     </div>
   </div>
-  
-</body>
-
+  </body>
 </html>

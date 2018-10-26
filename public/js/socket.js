@@ -47,7 +47,10 @@ $(document).ready(function() {
   socket.on('chat_message', function(msg) {
     $('#messages').append(
       $('<li class="animated fadeIn">')
-      .html('<img class="ava" src="https://i2.wp.com/beebom.com/wp-content/uploads/2016/01/Reverse-Image-Search-Engines-Apps-And-Its-Uses-2016.jpg?resize=640%2C426"><p class="mText">' + msg + '</p>'));
+      .html(
+        '<img class="ava" src="https://cdn.glitch.com/51abc91e-1207-4d19-94aa-de472d3c1d5a%2Fpersonal_default_avatar_for_mobile_phone_app__146524.png?1539975465839">'+
+        '<div class="m-box"><a href="' + "/" + '" class="m-box-author">Anonymous</a><div class="m-box-msg">' + msg + '</div></div>'
+      ));
     window.scrollTo(0, document.body.scrollHeight);
   });
 

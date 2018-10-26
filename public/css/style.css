@@ -63,17 +63,22 @@ body {
   margin: 5px;
   border-radius: 5px;
   animation-duration: 0.1s !important;
+  display: flex;
 }
 
 #messages li .ava {
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-color: #ebebeb;
 }
 
-#messages li .mText {
-  margin-left: 12px;
-  max-width: 100%;
+#messages li .m-box {
+  margin-left: 16px;
+  min-width: 100%;
 }
 
 button:hover i {
@@ -109,4 +114,18 @@ button:hover i {
   0% {opacity: 0.3}
   50% {opacity: 1}
   100% {opacity: 0.3}
+}
+
+.m-box-author {
+  font-weight: 600;
+  color: #555;
+}
+
+.m-box-author:hover {
+  text-decoration: underline;
+}
+
+.m-box-msg {
+  line-height: 18px;
+  outline: 0;
 }
